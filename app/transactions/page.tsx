@@ -1,8 +1,8 @@
 import { db } from "../_lib/prisma";
-import { Button } from "../_components/ui/button";
-import { ArrowDownUpIcon } from "lucide-react";
+
 import { DataTable } from "../_components/ui/data_table";
 import { transactioncolumns } from "./_columns";
+import AddTransactionButton from "../_components/add-transaction-button";
 
 const TransactionsPage = async () => {
   // Acessar as transações do banco
@@ -11,10 +11,7 @@ const TransactionsPage = async () => {
     <div className="p-6 space-y-6">
       <div className="flex w-full justify-between items-center p-6">
         <h1 className="text-2xl font-bold">Transações</h1>
-        <Button className="rounded-full">
-          Adicionar transação
-          <ArrowDownUpIcon />
-        </Button>
+        <AddTransactionButton />
       </div>
 
       <DataTable columns={transactioncolumns} data={transactions} />
